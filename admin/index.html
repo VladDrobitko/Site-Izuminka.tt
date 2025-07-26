@@ -23,6 +23,17 @@
         }
       });
     }
+    
+    // Handle the invite accept flow
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        // Check if this is an invite accept flow
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('invite_token')) {
+          window.netlifyIdentity.open('signup');
+        }
+      }
+    });
   </script>
 </body>
 </html>
