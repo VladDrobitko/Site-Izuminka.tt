@@ -1,0 +1,237 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/images"
+public_folder: "/images"
+
+collections:
+  - name: "config"
+    label: "Site Configuration"
+    files:
+      - file: "site-config.json"
+        label: "Site Settings"
+        name: "site"
+        fields:
+          - {label: "Artist Name", name: "artist_name", widget: "string", default: "izuminka.tt"}
+          - {label: "Site Title", name: "title", widget: "string", default: "izuminka.tt - Fineline Tattoo Artist"}
+          - {label: "Site Description", name: "description", widget: "text", default: "Professional fineline tattoo artist specializing in delicate, minimalist designs"}
+          - {label: "Contact Email", name: "email", widget: "string", default: "hello@izuminka.tt"}
+          - {label: "Phone", name: "phone", widget: "string", required: false}
+          - {label: "Instagram Handle", name: "instagram", widget: "string", default: "@izuminka.tt"}
+          - {label: "Instagram URL", name: "instagram_url", widget: "string", default: "https://instagram.com/izuminka.tt"}
+          - {label: "Studio Address", name: "studio_address", widget: "text", default: "123 Art Street\nCreative District\nBarcelona, Spain"}
+          - {label: "Business Hours", name: "hours", widget: "text", default: "Tuesday - Saturday\n10:00 AM - 7:00 PM\nBy appointment only"}
+          - {label: "Studio Location (Google Maps)", name: "maps_url", widget: "string", required: false}
+          
+  - name: "hero"
+    label: "Hero Section"
+    files:
+      - file: "hero-content.json"
+        label: "Hero Content"
+        name: "hero"
+        fields:
+          - {label: "Artist Name", name: "artist_name", widget: "string", default: "izuminka.tt"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", default: "Fineline Tattoo Artist"}
+          - {label: "Description", name: "description", widget: "text", default: "Creating delicate, minimalist tattoos that tell your unique story through fine lines and elegant details."}
+          - {label: "Primary Button Text", name: "primary_button", widget: "string", default: "Book Consultation"}
+          - {label: "Secondary Button Text", name: "secondary_button", widget: "string", default: "View Portfolio"}
+          - {label: "Hero Image", name: "hero_image", widget: "image", required: false}
+
+  - name: "about"
+    label: "About Section"
+    files:
+      - file: "about-content.json"
+        label: "About Content"
+        name: "about"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "About Me"}
+          - {label: "Lead Text", name: "lead", widget: "text", default: "Passionate about creating timeless, delicate tattoos that celebrate individuality and artistic expression."}
+          - {label: "Main Description", name: "description", widget: "markdown", default: "With over 5 years of experience in fineline tattooing, I specialize in minimalist designs, botanical illustrations, and custom pieces that reflect each client's personal story. Every tattoo is carefully crafted with attention to detail and artistic precision.\n\nMy work focuses on clean lines, elegant compositions, and designs that age beautifully over time. I believe in creating art that enhances your natural beauty and holds deep personal meaning."}
+          - {label: "Artist Photo", name: "photo", widget: "image", required: false}
+          - label: "Specialties"
+            name: "specialties"
+            widget: "list"
+            default: ["Fineline botanical tattoos", "Minimalist geometric designs", "Delicate script and lettering", "Custom symbolic pieces", "Small detailed artwork"]
+            field: {label: "Specialty", name: "specialty", widget: "string"}
+
+  - name: "portfolio"
+    label: "Portfolio"
+    files:
+      - file: "portfolio-content.json"
+        label: "Portfolio Content"
+        name: "portfolio"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Recent Work"}
+          - {label: "Section Description", name: "description", widget: "text", default: "A collection of fineline tattoos showcasing precision, artistry, and individual expression"}
+          - {label: "Instagram Call-to-Action", name: "instagram_cta", widget: "string", default: "See more work on Instagram"}
+          - label: "Portfolio Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Tattoo Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Image", name: "image", widget: "image", required: false}
+              - {label: "Client Location", name: "location", widget: "string", required: false}
+              - {label: "Completion Date", name: "date", widget: "date", required: false}
+              - {label: "Show in Portfolio", name: "published", widget: "boolean", default: true}
+
+  - name: "booking"
+    label: "Booking Section"
+    files:
+      - file: "booking-content.json"
+        label: "Booking Content"
+        name: "booking"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Book Your Session"}
+          - {label: "Lead Text", name: "lead", widget: "text", default: "Ready to bring your vision to life? Let's discuss your unique design and create something beautiful together."}
+          - {label: "Consultation Fee", name: "consultation_fee", widget: "string", default: "€50"}
+          - {label: "Session Duration", name: "session_duration", widget: "string", default: "2-4 hours typically"}
+          - {label: "Response Time", name: "response_time", widget: "string", default: "I'll respond within 24 hours to discuss your design and schedule a consultation."}
+          - label: "Booking Details"
+            name: "details"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                required: false
+                field: {label: "Feature", name: "feature", widget: "string"}
+
+  - name: "contact"
+    label: "Contact Section"
+    files:
+      - file: "contact-content.json"
+        label: "Contact Content"
+        name: "contact"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Get in Touch"}
+          - {label: "Description", name: "description", widget: "text", default: "Have questions or want to see more work? Connect with me on Instagram or visit the studio."}
+          - {label: "Studio Address", name: "studio_address", widget: "text", default: "123 Art Street\nCreative District\nBarcelona, Spain"}
+          - {label: "Business Hours", name: "hours", widget: "text", default: "Tuesday - Saturday\n10:00 AM - 7:00 PM\nBy appointment only"}
+          - {label: "Email", name: "email", widget: "string", default: "hello@izuminka.tt"}
+          - {label: "Phone", name: "phone", widget: "string", required: false}
+          - {label: "Instagram URL", name: "instagram_url", widget: "string", default: "https://instagram.com/izuminka.tt"}
+          - {label: "Instagram Handle", name: "instagram_handle", widget: "string", default: "@izuminka.tt"}
+
+  - name: "pricing"
+    label: "Pricing & Services"
+    files:
+      - file: "pricing-content.json"
+        label: "Pricing Information"
+        name: "pricing"
+        fields:
+          - label: "Price List"
+            name: "prices"
+            widget: "list"
+            fields:
+              - {label: "Service", name: "service", widget: "string"}
+              - {label: "Price", name: "price", widget: "string"}
+              - {label: "Details", name: "details", widget: "string"}
+              - {label: "Duration", name: "duration", widget: "string", required: false}
+          - label: "Payment Methods"
+            name: "payment_methods"
+            widget: "list"
+            default: ["Cash", "Bank transfer", "Credit/debit cards"]
+            field: {label: "Method", name: "method", widget: "string"}
+          - {label: "Deposit Amount", name: "deposit", widget: "string", default: "50%"}
+          - {label: "Touch-up Policy", name: "touchup", widget: "text", default: "Free within 6 months, €75 after 6 months"}
+
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - file: "testimonials-content.json"
+        label: "Client Testimonials"
+        name: "testimonials"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "What Clients Say"}
+          - {label: "Show Section", name: "show_section", widget: "boolean", default: false}
+          - label: "Testimonials"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Client Name", name: "name", widget: "string"}
+              - {label: "Tattoo Description", name: "tattoo", widget: "string", required: false}
+              - {label: "Testimonial", name: "testimonial", widget: "text"}
+              - {label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5}
+              - {label: "Date", name: "date", widget: "date", required: false}
+              - {label: "Show Testimonial", name: "published", widget: "boolean", default: true}
+
+  - name: "legal"
+    label: "Legal Pages"
+    files:
+      - file: "legal-content.json"
+        label: "Legal Information"
+        name: "legal"
+        fields:
+          - {label: "Studio Name", name: "studio_name", widget: "string", default: "izuminka.tt"}
+          - {label: "Legal Entity", name: "legal_entity", widget: "string", required: false}
+          - {label: "Registration Number", name: "registration", widget: "string", required: false}
+          - {label: "Tax ID", name: "tax_id", widget: "string", required: false}
+          - {label: "Studio Address", name: "address", widget: "text", default: "123 Art Street, Creative District, Barcelona, Spain"}
+          - {label: "Contact Email", name: "email", widget: "string", default: "hello@izuminka.tt"}
+          - {label: "Emergency Contact", name: "emergency_contact", widget: "string", required: false}
+          - {label: "Business License", name: "license", widget: "string", required: false}
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Excerpt", name: "excerpt", widget: "text", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: {label: "Tag", name: "tag", widget: "string"}
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["tattoo-care", "design-process", "studio-news", "artist-tips", "client-stories"]
+      - {label: "Published", name: "published", widget: "boolean", default: false}
+
+  - name: "pages"
+    label: "Additional Pages"
+    files:
+      - file: "faq-content.json"
+        label: "FAQ Page"
+        name: "faq"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string", default: "Frequently Asked Questions"}
+          - {label: "Page Description", name: "description", widget: "text", default: "Common questions about tattoo services, booking, and aftercare"}
+          - {label: "Show FAQ Page", name: "show_page", widget: "boolean", default: true}
+          - label: "FAQ Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Question", name: "question", widget: "string"}
+              - {label: "Answer", name: "answer", widget: "markdown"}
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options: ["booking", "aftercare", "pricing", "design", "general", "health"]
+              - {label: "Show Question", name: "published", widget: "boolean", default: true}
+
+  - name: "settings"
+    label: "SEO & Analytics"
+    files:
+      - file: "seo-settings.json"
+        label: "SEO Settings"
+        name: "seo"
+        fields:
+          - {label: "Default SEO Title", name: "default_title", widget: "string", default: "izuminka.tt - Fineline Tattoo Artist"}
+          - {label: "Default SEO Description", name: "default_description", widget: "text", default: "Professional fineline tattoo artist specializing in delicate, minimalist designs. Book your consultation today."}
+          - {label: "Keywords", name: "keywords", widget: "text", default: "fineline tattoo, minimalist tattoo, botanical tattoo, Barcelona tattoo artist, delicate tattoo"}
+          - {label: "Google Analytics ID", name: "google_analytics", widget: "string", required: false}
+          - {label: "Google Search Console", name: "google_console", widget: "string", required: false}
+          - {label: "Facebook Pixel ID", name: "facebook_pixel", widget: "string", required: false}
+          - {label: "Favicon", name: "favicon", widget: "image", required: false}
+          - {label: "Open Graph Image", name: "og_image", widget: "image", required: false}
+          - {label: "Site Language", name: "language", widget: "string", default: "en"}
+          - {label: "Time Zone", name: "timezone", widget: "string", default: "Europe/Madrid"}
