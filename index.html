@@ -1,20 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>izuminka.tt - Fineline Tattoo Artist</title>
-    <meta name="description" content="Professional fineline tattoo artist specializing in delicate, minimalist designs. Book your consultation today.">
-    
+    <meta name="description"
+        content="Professional fineline tattoo artist specializing in delicate, minimalist designs. Book your consultation today.">
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+
+    <!-- Hidden form for Netlify form detection -->
+    <form name="booking" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <select name="tattoo-type">
+            <option value="botanical">Botanical/Floral</option>
+            <option value="geometric">Geometric/Abstract</option>
+            <option value="script">Script/Lettering</option>
+            <option value="symbolic">Symbolic/Meaningful</option>
+            <option value="custom">Custom Design</option>
+            <option value="consultation">Just Consultation</option>
+        </select>
+        <select name="size">
+            <option value="small">Small (2-4 inches)</option>
+            <option value="medium">Medium (4-6 inches)</option>
+            <option value="large">Large (6+ inches)</option>
+            <option value="unsure">Not sure yet</option>
+        </select>
+        <input type="text" name="placement" />
+        <input type="date" name="preferred-date" />
+        <textarea name="description"></textarea>
+        <select name="previous-tattoos">
+            <option value="first">This will be my first tattoo</option>
+            <option value="few">I have a few tattoos</option>
+            <option value="many">I have many tattoos</option>
+        </select>
+        <input type="checkbox" name="age-consent" />
+        <input type="checkbox" name="privacy-consent" />
+        <input type="checkbox" name="client-agreement" />
+        <input type="checkbox" name="portfolio-consent" />
+        <input type="hidden" name="form-name" value="booking" />
+    </form>
     <!-- Header -->
     <header class="header">
         <nav class="nav">
@@ -27,7 +66,8 @@
             </ul>
             <a href="https://instagram.com/izuminka.tt" target="_blank" class="instagram-btn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
                 Instagram
             </a>
@@ -40,13 +80,17 @@
             <div class="hero-text">
                 <h1>izuminka.tt</h1>
                 <p class="subtitle">Fineline Tattoo Artist</p>
-                <p class="description">Creating delicate, minimalist tattoos that tell your unique story through fine lines and elegant details.</p>
-                
+                <p class="description">Creating delicate, minimalist tattoos that tell your unique story through fine
+                    lines and elegant details.</p>
+
                 <div class="hero-details">
-                    <p>With over 5 years of experience in fineline tattooing, I specialize in minimalist designs, botanical illustrations, and custom pieces that reflect each client's personal story. Every tattoo is carefully crafted with attention to detail and artistic precision.</p>
-                    <p>My work focuses on clean lines, elegant compositions, and designs that age beautifully over time. I believe in creating art that enhances your natural beauty and holds deep personal meaning.</p>
+                    <p>With over 5 years of experience in fineline tattooing, I specialize in minimalist designs,
+                        botanical illustrations, and custom pieces that reflect each client's personal story. Every
+                        tattoo is carefully crafted with attention to detail and artistic precision.</p>
+                    <p>My work focuses on clean lines, elegant compositions, and designs that age beautifully over time.
+                        I believe in creating art that enhances your natural beauty and holds deep personal meaning.</p>
                 </div>
-                
+
                 <div class="specialties">
                     <h3>Specialties</h3>
                     <ul>
@@ -57,7 +101,7 @@
                         <li>Small detailed artwork</li>
                     </ul>
                 </div>
-                
+
                 <div class="hero-actions">
                     <a href="#booking" class="btn-primary">Book Consultation</a>
                     <a href="#portfolio" class="btn-secondary">View Portfolio</a>
@@ -81,7 +125,7 @@
                 <h2>Recent Work</h2>
                 <p>A collection of fineline tattoos showcasing precision, artistry, and individual expression</p>
             </div>
-            
+
             <div class="portfolio-carousel-container">
                 <div class="portfolio-carousel">
                     <div class="portfolio-slide">
@@ -95,7 +139,7 @@
                             <p>Delicate fineline rose with stem details</p>
                         </div>
                     </div>
-                    
+
                     <div class="portfolio-slide">
                         <div class="portfolio-image">
                             <div class="image-placeholder vertical">
@@ -107,7 +151,7 @@
                             <p>Clean minimalist geometric composition</p>
                         </div>
                     </div>
-                    
+
                     <div class="portfolio-slide">
                         <div class="portfolio-image">
                             <div class="image-placeholder vertical">
@@ -119,7 +163,7 @@
                             <p>Custom fineline script design</p>
                         </div>
                     </div>
-                    
+
                     <div class="portfolio-slide">
                         <div class="portfolio-image">
                             <div class="image-placeholder vertical">
@@ -131,7 +175,7 @@
                             <p>Detailed botanical illustration</p>
                         </div>
                     </div>
-                    
+
                     <div class="portfolio-slide">
                         <div class="portfolio-image">
                             <div class="image-placeholder vertical">
@@ -143,7 +187,7 @@
                             <p>Symbolic celestial design</p>
                         </div>
                     </div>
-                    
+
                     <div class="portfolio-slide">
                         <div class="portfolio-image">
                             <div class="image-placeholder vertical">
@@ -180,16 +224,16 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Navigation arrows -->
                 <button class="carousel-nav carousel-prev">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                     </svg>
                 </button>
                 <button class="carousel-nav carousel-next">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
                     </svg>
                 </button>
             </div>
@@ -202,19 +246,22 @@
             <div class="booking-content">
                 <div class="booking-info">
                     <h2>Book Your Session</h2>
-                    <p class="lead">Ready to bring your vision to life? Let's discuss your unique design and create something beautiful together.</p>
-                    
+                    <p class="lead">Ready to bring your vision to life? Let's discuss your unique design and create
+                        something beautiful together.</p>
+
                     <div class="booking-details">
                         <div class="detail-item">
                             <h3>Consultation Process</h3>
-                            <p>Every tattoo begins with a detailed consultation to understand your vision, discuss placement, and create a custom design that's perfect for you.</p>
+                            <p>Every tattoo begins with a detailed consultation to understand your vision, discuss
+                                placement, and create a custom design that's perfect for you.</p>
                         </div>
-                        
+
                         <div class="detail-item">
                             <h3>Preparation</h3>
-                            <p>I'll provide detailed aftercare instructions and answer any questions to ensure your tattoo heals perfectly and maintains its beauty.</p>
+                            <p>I'll provide detailed aftercare instructions and answer any questions to ensure your
+                                tattoo heals perfectly and maintains its beauty.</p>
                         </div>
-                        
+
                         <div class="detail-item">
                             <h3>Session Info</h3>
                             <ul>
@@ -226,26 +273,27 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="booking-form-container">
-                    <form class="booking-form" name="booking" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify>
+                    <form class="booking-form" name="booking" method="POST" data-netlify="true"
+                        data-netlify-recaptcha="true" netlify>
                         <input type="hidden" name="form-name" value="booking">
-                        
+
                         <div class="form-group">
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" required placeholder="Your full name">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" required placeholder="your@email.com">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone" placeholder="Your phone number">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="tattoo-type">Tattoo Style *</label>
                             <select id="tattoo-type" name="tattoo-type" required>
@@ -258,7 +306,7 @@
                                 <option value="consultation">Just Consultation</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="size">Approximate Size</label>
                             <select id="size" name="size">
@@ -269,22 +317,24 @@
                                 <option value="unsure">Not sure yet</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="placement">Placement on Body</label>
-                            <input type="text" id="placement" name="placement" placeholder="e.g., forearm, wrist, shoulder">
+                            <input type="text" id="placement" name="placement"
+                                placeholder="e.g., forearm, wrist, shoulder">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="preferred-date">Preferred Date</label>
                             <input type="date" id="preferred-date" name="preferred-date">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="description">Design Description *</label>
-                            <textarea id="description" name="description" rows="5" required placeholder="Describe your tattoo idea, any reference images you have, style preferences, and what this design means to you..."></textarea>
+                            <textarea id="description" name="description" rows="5" required
+                                placeholder="Describe your tattoo idea, any reference images you have, style preferences, and what this design means to you..."></textarea>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="previous-tattoos">Previous Tattoos</label>
                             <select id="previous-tattoos" name="previous-tattoos">
@@ -294,41 +344,42 @@
                                 <option value="many">I have many tattoos</option>
                             </select>
                         </div>
-                        
+
                         <div class="checkbox-group">
                             <input type="checkbox" id="age-consent" name="age-consent" required>
                             <label for="age-consent">
                                 I confirm that I am 18 years or older *
                             </label>
                         </div>
-                        
+
                         <div class="checkbox-group">
                             <input type="checkbox" id="privacy-consent" name="privacy-consent" required>
                             <label for="privacy-consent">
-                                I consent to the processing of my personal data in accordance with the 
+                                I consent to the processing of my personal data in accordance with the
                                 <a href="privacy.html" target="_blank">Privacy Policy</a> *
                             </label>
                         </div>
-                        
+
                         <div class="checkbox-group">
                             <input type="checkbox" id="client-agreement" name="client-agreement" required>
                             <label for="client-agreement">
-                                I have read and agree to the 
+                                I have read and agree to the
                                 <a href="agreement.html" target="_blank">Client Agreement</a> terms and conditions *
                             </label>
                         </div>
-                        
+
                         <div class="checkbox-group">
                             <input type="checkbox" id="portfolio-consent" name="portfolio-consent">
                             <label for="portfolio-consent">
-                                I consent to my tattoo being shared on social media and portfolio (face will not be shown)
+                                I consent to my tattoo being shared on social media and portfolio (face will not be
+                                shown)
                             </label>
                         </div>
-                        
+
                         <div data-netlify-recaptcha="true"></div>
-                        
+
                         <button type="submit" class="submit-btn">Send Booking Request</button>
-                        
+
                         <p class="form-note">
                             * I'll respond within 24 hours to discuss your design and schedule a consultation.
                         </p>
@@ -345,34 +396,37 @@
                 <div class="contact-info">
                     <h2>Get in Touch</h2>
                     <p>Have questions or want to see more work? Connect with me on Instagram or visit the studio.</p>
-                    
+
                     <div class="contact-details">
                         <div class="contact-item">
                             <h3>Studio Location</h3>
                             <p>123 Art Street<br>
-                            Creative District<br>
-                            Barcelona, Spain</p>
+                                Creative District<br>
+                                Barcelona, Spain</p>
                         </div>
-                        
+
                         <div class="contact-item">
                             <h3>Hours</h3>
                             <p>Tuesday - Saturday<br>
-                            10:00 AM - 7:00 PM<br>
-                            <em>By appointment only</em></p>
+                                10:00 AM - 7:00 PM<br>
+                                <em>By appointment only</em>
+                            </p>
                         </div>
-                        
+
                         <div class="contact-item">
                             <h3>Connect</h3>
                             <div class="social-links">
                                 <a href="https://instagram.com/izuminka.tt" target="_blank" class="social-link">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                        <path
+                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                     </svg>
                                     @izuminka.tt
                                 </a>
                                 <a href="mailto:hello@izuminka.tt" class="social-link">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                        <path
+                                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                                     </svg>
                                     Email
                                 </a>
@@ -380,7 +434,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="contact-map">
                     <div class="map-placeholder">
                         <!-- Map placeholder - replace with actual map embed -->
@@ -391,7 +445,7 @@
         </div>
     </section>
 
-   <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
@@ -409,4 +463,5 @@
     <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
+
 </html>
