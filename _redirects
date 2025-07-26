@@ -1,0 +1,18 @@
+# Netlify redirects file
+
+# Admin panel redirect
+/admin   /admin/index.html   200
+
+# Identity widget redirect for invites
+/.netlify/identity/signup   /admin/   302
+/.netlify/identity/recovery   /admin/   302
+
+# Contact form submission success page
+/booking-success   /index.html#booking   200
+
+# Form submissions
+/booking   /index.html#booking   200
+/contact   /index.html#contact   200
+
+# Fallback for SPA
+/*    /index.html   200
