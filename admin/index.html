@@ -17,23 +17,39 @@
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
+          // Check if this is an invite accept flow
+          const params = new URLSearchParams(window.location.search);
+          const hash = window.location.hash;
+          
+          // Check for invite token in URL parameters or hash
+          if (params.get('invite_token') || hash.includes('invite_token')) {
+            console.log('Invite token detected, opening signup modal');
+            window.netlifyIdentity.open('signup');
+          } else if (params.get('recovery_token') || hash.includes('recovery_token')) {
+            console.log('Recovery token detected, opening recovery modal');
+            window.netlifyIdentity.open('login');
+          }
+          
           window.netlifyIdentity.on("login", () => {
             document.location.href = "/admin/";
           });
         }
       });
+      
+      // Handle successful signup
+      window.netlifyIdentity.on("signup", user => {
+        console.log('User signed up:', user);
+        window.netlifyIdentity.close();
+        document.location.href = "/admin/";
+      });
+      
+      // Handle errors
+      window.netlifyIdentity.on("error", err => {
+        console.error('Netlify Identity error:', err);
+      });
+    } else {
+      console.error('Netlify Identity widget not loaded');
     }
-    
-    // Handle the invite accept flow
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        // Check if this is an invite accept flow
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('invite_token')) {
-          window.netlifyIdentity.open('signup');
-        }
-      }
-    });
   </script>
 </body>
 </html>
