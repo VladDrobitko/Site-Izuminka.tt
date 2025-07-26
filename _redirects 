@@ -1,0 +1,10 @@
+# Netlify redirects file
+
+# Redirect admin to Netlify CMS
+/admin   /admin/index.html   200
+
+# Contact form submission
+/booking   /index.html#booking   200
+
+# Single page application fallback
+/*    /index.html   200
