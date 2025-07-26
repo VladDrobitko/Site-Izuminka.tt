@@ -5,6 +5,9 @@ backend:
 media_folder: "static/images"
 public_folder: "/images"
 
+# Enable editorial workflow for content approval
+publish_mode: editorial_workflow
+
 collections:
   - name: "config"
     label: "Site Configuration"
@@ -23,12 +26,28 @@ collections:
           - {label: "Studio Address", name: "studio_address", widget: "text", default: "123 Art Street\nCreative District\nBarcelona, Spain"}
           - {label: "Business Hours", name: "hours", widget: "text", default: "Tuesday - Saturday\n10:00 AM - 7:00 PM\nBy appointment only"}
           - {label: "Studio Location (Google Maps)", name: "maps_url", widget: "string", required: false}
-          
-  - name: "hero"
-    label: "Hero Section"
+
+  - name: "portfolio"
+    label: "Portfolio"
+    folder: "content/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tattoo Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "Category", name: "category", widget: "select", options: ["botanical", "geometric", "script", "symbolic", "custom"]}
+      - {label: "Size", name: "size", widget: "select", options: ["small", "medium", "large"]}
+      - {label: "Client Location", name: "location", widget: "string", required: false}
+      - {label: "Completion Date", name: "date", widget: "date", required: false}
+      - {label: "Show in Portfolio", name: "published", widget: "boolean", default: true}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+
+  - name: "pages"
+    label: "Page Content"
     files:
-      - file: "hero-content.json"
-        label: "Hero Content"
+      - file: "content/hero.md"
+        label: "Hero Section"
         name: "hero"
         fields:
           - {label: "Artist Name", name: "artist_name", widget: "string", default: "izuminka.tt"}
@@ -37,50 +56,15 @@ collections:
           - {label: "Primary Button Text", name: "primary_button", widget: "string", default: "Book Consultation"}
           - {label: "Secondary Button Text", name: "secondary_button", widget: "string", default: "View Portfolio"}
           - {label: "Hero Image", name: "hero_image", widget: "image", required: false}
-
-  - name: "about"
-    label: "About Section"
-    files:
-      - file: "about-content.json"
-        label: "About Content"
-        name: "about"
-        fields:
-          - {label: "Section Title", name: "title", widget: "string", default: "About Me"}
-          - {label: "Lead Text", name: "lead", widget: "text", default: "Passionate about creating timeless, delicate tattoos that celebrate individuality and artistic expression."}
-          - {label: "Main Description", name: "description", widget: "markdown", default: "With over 5 years of experience in fineline tattooing, I specialize in minimalist designs, botanical illustrations, and custom pieces that reflect each client's personal story. Every tattoo is carefully crafted with attention to detail and artistic precision.\n\nMy work focuses on clean lines, elegant compositions, and designs that age beautifully over time. I believe in creating art that enhances your natural beauty and holds deep personal meaning."}
-          - {label: "Artist Photo", name: "photo", widget: "image", required: false}
+          - {label: "About Text", name: "about_text", widget: "markdown", default: "With over 5 years of experience in fineline tattooing, I specialize in minimalist designs, botanical illustrations, and custom pieces that reflect each client's personal story."}
           - label: "Specialties"
             name: "specialties"
             widget: "list"
             default: ["Fineline botanical tattoos", "Minimalist geometric designs", "Delicate script and lettering", "Custom symbolic pieces", "Small detailed artwork"]
             field: {label: "Specialty", name: "specialty", widget: "string"}
 
-  - name: "portfolio"
-    label: "Portfolio"
-    files:
-      - file: "portfolio-content.json"
-        label: "Portfolio Content"
-        name: "portfolio"
-        fields:
-          - {label: "Section Title", name: "title", widget: "string", default: "Recent Work"}
-          - {label: "Section Description", name: "description", widget: "text", default: "A collection of fineline tattoos showcasing precision, artistry, and individual expression"}
-          - {label: "Instagram Call-to-Action", name: "instagram_cta", widget: "string", default: "See more work on Instagram"}
-          - label: "Portfolio Items"
-            name: "items"
-            widget: "list"
-            fields:
-              - {label: "Tattoo Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-              - {label: "Image", name: "image", widget: "image", required: false}
-              - {label: "Client Location", name: "location", widget: "string", required: false}
-              - {label: "Completion Date", name: "date", widget: "date", required: false}
-              - {label: "Show in Portfolio", name: "published", widget: "boolean", default: true}
-
-  - name: "booking"
-    label: "Booking Section"
-    files:
-      - file: "booking-content.json"
-        label: "Booking Content"
+      - file: "content/booking.md"
+        label: "Booking Section"
         name: "booking"
         fields:
           - {label: "Section Title", name: "title", widget: "string", default: "Book Your Session"}
@@ -88,23 +72,9 @@ collections:
           - {label: "Consultation Fee", name: "consultation_fee", widget: "string", default: "€50"}
           - {label: "Session Duration", name: "session_duration", widget: "string", default: "2-4 hours typically"}
           - {label: "Response Time", name: "response_time", widget: "string", default: "I'll respond within 24 hours to discuss your design and schedule a consultation."}
-          - label: "Booking Details"
-            name: "details"
-            widget: "list"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-              - label: "Features"
-                name: "features"
-                widget: "list"
-                required: false
-                field: {label: "Feature", name: "feature", widget: "string"}
 
-  - name: "contact"
-    label: "Contact Section"
-    files:
-      - file: "contact-content.json"
-        label: "Contact Content"
+      - file: "content/contact.md"
+        label: "Contact Section"
         name: "contact"
         fields:
           - {label: "Section Title", name: "title", widget: "string", default: "Get in Touch"}
@@ -119,7 +89,7 @@ collections:
   - name: "pricing"
     label: "Pricing & Services"
     files:
-      - file: "pricing-content.json"
+      - file: "content/pricing.json"
         label: "Pricing Information"
         name: "pricing"
         fields:
@@ -138,42 +108,6 @@ collections:
             field: {label: "Method", name: "method", widget: "string"}
           - {label: "Deposit Amount", name: "deposit", widget: "string", default: "50%"}
           - {label: "Touch-up Policy", name: "touchup", widget: "text", default: "Free within 6 months, €75 after 6 months"}
-
-  - name: "testimonials"
-    label: "Testimonials"
-    files:
-      - file: "testimonials-content.json"
-        label: "Client Testimonials"
-        name: "testimonials"
-        fields:
-          - {label: "Section Title", name: "title", widget: "string", default: "What Clients Say"}
-          - {label: "Show Section", name: "show_section", widget: "boolean", default: false}
-          - label: "Testimonials"
-            name: "items"
-            widget: "list"
-            fields:
-              - {label: "Client Name", name: "name", widget: "string"}
-              - {label: "Tattoo Description", name: "tattoo", widget: "string", required: false}
-              - {label: "Testimonial", name: "testimonial", widget: "text"}
-              - {label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5}
-              - {label: "Date", name: "date", widget: "date", required: false}
-              - {label: "Show Testimonial", name: "published", widget: "boolean", default: true}
-
-  - name: "legal"
-    label: "Legal Pages"
-    files:
-      - file: "legal-content.json"
-        label: "Legal Information"
-        name: "legal"
-        fields:
-          - {label: "Studio Name", name: "studio_name", widget: "string", default: "izuminka.tt"}
-          - {label: "Legal Entity", name: "legal_entity", widget: "string", required: false}
-          - {label: "Registration Number", name: "registration", widget: "string", required: false}
-          - {label: "Tax ID", name: "tax_id", widget: "string", required: false}
-          - {label: "Studio Address", name: "address", widget: "text", default: "123 Art Street, Creative District, Barcelona, Spain"}
-          - {label: "Contact Email", name: "email", widget: "string", default: "hello@izuminka.tt"}
-          - {label: "Emergency Contact", name: "emergency_contact", widget: "string", required: false}
-          - {label: "Business License", name: "license", widget: "string", required: false}
 
   - name: "blog"
     label: "Blog Posts"
@@ -196,32 +130,24 @@ collections:
         options: ["tattoo-care", "design-process", "studio-news", "artist-tips", "client-stories"]
       - {label: "Published", name: "published", widget: "boolean", default: false}
 
-  - name: "pages"
-    label: "Additional Pages"
-    files:
-      - file: "faq-content.json"
-        label: "FAQ Page"
-        name: "faq"
-        fields:
-          - {label: "Page Title", name: "title", widget: "string", default: "Frequently Asked Questions"}
-          - {label: "Page Description", name: "description", widget: "text", default: "Common questions about tattoo services, booking, and aftercare"}
-          - {label: "Show FAQ Page", name: "show_page", widget: "boolean", default: true}
-          - label: "FAQ Items"
-            name: "items"
-            widget: "list"
-            fields:
-              - {label: "Question", name: "question", widget: "string"}
-              - {label: "Answer", name: "answer", widget: "markdown"}
-              - label: "Category"
-                name: "category"
-                widget: "select"
-                options: ["booking", "aftercare", "pricing", "design", "general", "health"]
-              - {label: "Show Question", name: "published", widget: "boolean", default: true}
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Client Name", name: "name", widget: "string"}
+      - {label: "Tattoo Description", name: "tattoo", widget: "string", required: false}
+      - {label: "Testimonial", name: "testimonial", widget: "text"}
+      - {label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5}
+      - {label: "Date", name: "date", widget: "date", required: false}
+      - {label: "Show Testimonial", name: "published", widget: "boolean", default: true}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
 
   - name: "settings"
     label: "SEO & Analytics"
     files:
-      - file: "seo-settings.json"
+      - file: "content/seo-settings.json"
         label: "SEO Settings"
         name: "seo"
         fields:
