@@ -3,12 +3,12 @@
 # Admin panel redirect
 /admin   /admin/index.html   200
 
-# Contact form submission success page
-/booking-success   /index.html#booking   200
+# Booking success page
+/booking-success   /booking-success.html   200
 
-# Form submissions
-/booking   /index.html#booking   200
-/contact   /index.html#contact   200
+# Form submission fallbacks (if someone accesses directly)
+/booking   /   302
+/contact   /   302
 
 # API routes for forms
 /api/*   /.netlify/functions/:splat   200
